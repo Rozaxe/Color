@@ -1,7 +1,7 @@
 Color
 =====
 
-[Preview](//vergamote.net/preview/color "Color")
+[Preview](http://vergamote.net/preview/color "Color")
 
 Colors are not what they should be !
 Could you find the good answer ? Without mistakes ?
@@ -13,4 +13,4 @@ Thanks to `dart2js`, *Color* is supported by all modern browser.
 
 Preview
 -------
-A preview is available [here](//vergamote.net/preview/color "Color") !
+A preview is available [here](http://vergamote.net/preview/color "Color") !
