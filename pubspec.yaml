@@ -1,7 +1,7 @@
 name: Color
 version: 0.1.0
 author: Rozaxe
-homepage: gitub.com/rozaxe/color
+homepage: github.com/rozaxe/color
 environment:
   sdk: 1.2.0
 dependencies:
