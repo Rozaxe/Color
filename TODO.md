@@ -1,4 +1,4 @@
- - [x] Responsive
- - [ ] Post score on Twitter
- - [ ] Sound
- - [ ] Music
+ - ☑ Responsive
+ - ☐ Post score on Twitter
+ - ☐ Sound
+ - ☐ Music
