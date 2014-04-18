@@ -21,8 +21,8 @@ A preview is available [here](http://vergamote.net/preview/color "Color") !
 Todo
 ----
 
- - [x] Responsive
- - [ ] Post score on Twitter
- - [ ] Sound
- - [ ] Music
+- [x] Responsive
+- [ ] Post score on Twitter
+- [ ] Sound
+- [ ] Music
  
