@@ -2,7 +2,7 @@
 /// <reference path="scenes.ts" />
 
 module Managers {
-    module Scene {
+    export module Scene {
         var scene: Scenes.Base
         var attachs: Attached[]
 
