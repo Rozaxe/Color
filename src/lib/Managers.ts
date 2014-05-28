@@ -7,7 +7,7 @@ module Managers {
         var attachs: Attached[]
 
         class Attached {
-            constructor(public e: HTMLElement, public t: string, public l: (e: any) => void) { }
+            constructor(public e: HTMLElement, public t: string, public l: (e?: Event) => void) { }
         }
 
         function clean_streams() {
@@ -16,7 +16,7 @@ module Managers {
             })
         }
 
-        export function attach(e: HTMLElement, t: string, l: (e: any) => void): void {
+        export function attach(e: HTMLElement, t: string, l: (e?: Event) => void): void {
             e.addEventListener(t, l, false)
             attachs.push(new Attached(e, t, l))
         }

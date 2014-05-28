@@ -1,6 +1,7 @@
 
 /// <reference path="../scenes.ts" />
 /// <reference path="../managers.ts" />
+/// <reference path="color.ts" />
 
 module Scenes {
     export class Score implements Base {
@@ -19,7 +20,7 @@ module Scenes {
             this.num.innerHTML = this.result.toString()
             this.shadow.className += 'visible'
             this.score.className  += 'open'
-            //this.attach()
+            Managers.Scene.attach(this.replay, 'click', this.restart)
         }
 
         restart() {
@@ -30,12 +31,5 @@ module Scenes {
             this.shadow.className = this.shadow.className.replace(/\bvisible\b/, '')
             this.score.className  = this.score.className.replace(/\bopen\b/, '')
         }
-        /*
-	void start() {
-		num.text = result.toString();
-        shadow.classes.add('visible');
-        score.classes.add('open');
-		attach(replay.onClick, (event) => restart());
-	}*/
     }
 }
