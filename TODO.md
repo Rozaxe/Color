@@ -1,4 +1,0 @@
- - ☑ Responsive
- - ☐ Post score on Twitter
- - ☐ Sound
- - ☐ Music
