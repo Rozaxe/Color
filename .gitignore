@@ -2,6 +2,6 @@
 .idea/
 build/
 web/
+node_modules/
 
 .DS_Store
-

@@ -1,5 +1,6 @@
 
 /// <reference path="scenes.ts" />
+/// <reference path="tools.ts" />
 
 module Managers {
     export module Scene {
@@ -7,7 +8,7 @@ module Managers {
         var attachs: Attached[]
 
         class Attached {
-            constructor(public e: HTMLElement, public t: string, public l: (e?: Event) => void) { }
+            constructor(public e: EventTarget, public t: string, public l: (e: Event) => void) { }
         }
 
         function clean_streams() {
@@ -16,7 +17,7 @@ module Managers {
             })
         }
 
-        export function attach(e: HTMLElement, t: string, l: (e?: Event) => void): void {
+        export function attach(e: EventTarget, t: string, l: (e: Event) => void): void {
             e.addEventListener(t, l, false)
             attachs.push(new Attached(e, t, l))
         }
@@ -32,4 +33,30 @@ module Managers {
             scene.start()
         }
     }
+
+	export module Color {
+		var colors : Tools.Color[] = new Array()
+
+		colors.push(new Tools.Color('red',    'dred'))
+		colors.push(new Tools.Color('green',  'dgreen'))
+		colors.push(new Tools.Color('blue',   'dred'))
+		colors.push(new Tools.Color('yellow', 'dyellow'))
+		colors.push(new Tools.Color('orange', 'dorange'))
+		colors.push(new Tools.Color('purple', 'dpurple'))
+
+		// Return nb random Color
+		export function getColors(nb: number): Tools.Color[] {
+			var tmp : Tools.Color[] = new Array()
+
+			for (var i = 0 ; i < nb ; ++i) {
+				var col: Tools.Color
+				do {
+					col = colors[Math.floor(Math.random() * colors.length)]
+				} while(tmp.indexOf(col) != -1)
+				tmp.push(col)
+			}
+
+			return tmp
+		}
+	}
 }
