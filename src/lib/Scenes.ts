@@ -1,5 +1,7 @@
 
 /// <reference path="scenes/score.ts" />
+/// <reference path="scenes/color.ts" />
+/// <reference path="scenes/title.ts" />
 
 module Scenes {
 

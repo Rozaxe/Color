@@ -31,14 +31,14 @@ module Scenes {
 			this.updateText(colors[0], colors[1])
 			this.updateContent(colors[2])
 
-			this.timer = window.setTimeout(() => valid(null), this.duration)
+			this.timer = window.setTimeout(() => this.valid(null), this.duration)
 		}
 
 		updateChoice(colors: Tools.Color[]) {
 			var first = Math.floor(Math.random() * colors.length)
-			this.winning = this.choices[first]
+			this.winning = <HTMLElement> this.choices.item(first)
 			for (var i = 0 ; i < colors.length ; ++i) {
-				this.applyBackgroundColor(this.choices[(i + first) % this.choices.length], colors[i])
+				this.applyBackgroundColor(<HTMLElement> this.choices.item((i + first) % this.choices.length), colors[i])
 			}
 		}
 
