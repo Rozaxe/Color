@@ -1,6 +1,6 @@
 
 module Tools {
 	export class Color {
-		constructor(public regular: string, public light: string) {}
+		constructor(public name: string, public regular: string, public light: string) {}
 	}
 }

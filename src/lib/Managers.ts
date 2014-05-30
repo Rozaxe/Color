@@ -5,14 +5,14 @@
 module Managers {
     export module Scene {
         var scene: Scenes.Base
-        var attachs: Attached[]
+        var attachs: Attached[] = new Array()
 
         class Attached {
             constructor(public e: EventTarget, public t: string, public l: (e: Event) => void) { }
         }
 
         function clean_streams() {
-            attachs.forEach(function(a) {
+            attachs.forEach(function(a: Attached) {
                 a.e.removeEventListener(a.t, a.l, false)
             })
         }
@@ -37,12 +37,12 @@ module Managers {
 	export module Color {
 		var colors : Tools.Color[] = new Array()
 
-		colors.push(new Tools.Color('red',    'dred'))
-		colors.push(new Tools.Color('green',  'dgreen'))
-		colors.push(new Tools.Color('blue',   'dred'))
-		colors.push(new Tools.Color('yellow', 'dyellow'))
-		colors.push(new Tools.Color('orange', 'dorange'))
-		colors.push(new Tools.Color('purple', 'dpurple'))
+		colors.push(new Tools.Color('red',    'red',    'red'))
+		colors.push(new Tools.Color('green',  'green',  'green'))
+		colors.push(new Tools.Color('blue',   'blue',   'blue'))
+		colors.push(new Tools.Color('yellow', 'yellow', 'yellow'))
+		//colors.push(new Tools.Color('orange', 'dorange'))
+		//colors.push(new Tools.Color('purple', 'dpurple'))
 
 		// Return nb random Color
 		export function getColors(nb: number): Tools.Color[] {

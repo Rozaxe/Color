@@ -38,7 +38,8 @@ module Scenes {
 			var first = Math.floor(Math.random() * colors.length)
 			this.winning = <HTMLElement> this.choices.item(first)
 			for (var i = 0 ; i < colors.length ; ++i) {
-				this.applyBackgroundColor(<HTMLElement> this.choices.item((i + first) % this.choices.length), colors[i])
+				//(<HTMLElement> this.choices.item((i + first) % this.choices.length)).className = 'choice ' + colors[i].light
+				this.applyBackgroundColor(<HTMLElement> this.choices.item((i + first) % this.choices.length), colors[i].light)
 			}
 		}
 
@@ -50,7 +51,7 @@ module Scenes {
 		}
 
 		updateContent(col: Tools.Color) {
-			this.applyBackgroundColor(this.content, col);
+			this.applyBackgroundColor(this.content, col.regular);
 		}
 
 		getChoice(i: number): HTMLElement {
@@ -75,8 +76,9 @@ module Scenes {
 			this.closeText()
 		}
 
-		applyBackgroundColor(elem: HTMLElement, color: Tools.Color) {
-			elem.className = color.light
+		applyBackgroundColor(elem: HTMLElement, color: string) {
+			//elem.className = color.light
+			elem.style.backgroundColor = color
 		}
 
 		closeText() {
