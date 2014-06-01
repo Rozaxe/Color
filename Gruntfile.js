@@ -2,6 +2,19 @@ module.exports = function(grunt) {
 
 // Grunt config
 grunt.initConfig({
+// Copy config
+copy: {
+  build: {
+    files: [
+      {
+        expand: true,
+        cwd: 'src/',
+        src: ['**/*', '!**/*.ts'],
+        dest: 'build/'
+      }
+    ]
+  }
+},
 // Typescript config
 typescript: {
   compile: {
@@ -40,6 +53,7 @@ clean: {
 // Load Grunt Tasks
 grunt.loadNpmTasks('grunt-contrib-connect')
 grunt.loadNpmTasks('grunt-contrib-clean')
+grunt.loadNpmTasks('grunt-contrib-copy')
 grunt.loadNpmTasks('grunt-contrib-watch')
 grunt.loadNpmTasks('grunt-typescript')
 
@@ -47,5 +61,5 @@ grunt.loadNpmTasks('grunt-typescript')
 grunt.registerTask('js',      [ 'typescript' ])
 grunt.registerTask('build',   [ 'js' ])
 grunt.registerTask('server',  [ 'connect' ])
-grunt.registerTask('default', [ /*'clean',*/ 'server', 'build', 'watch' ])
+grunt.registerTask('default', [ 'clean', 'copy', 'server', 'build', 'watch' ])
 }
