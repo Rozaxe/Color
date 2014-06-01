@@ -23,7 +23,7 @@ module Managers {
         }
 
         export function change_scene(s: Scenes.Base): void {
-            s.terminate()
+            scene.terminate()
             clean_streams()
             init_scene(s)
         }
@@ -37,12 +37,13 @@ module Managers {
 	export module Color {
 		var colors : Tools.Color[] = new Array()
 
-		colors.push(new Tools.Color('red',    'red',    'red'))
-		colors.push(new Tools.Color('green',  'green',  'green'))
-		colors.push(new Tools.Color('blue',   'blue',   'blue'))
-		colors.push(new Tools.Color('yellow', 'yellow', 'yellow'))
-		//colors.push(new Tools.Color('orange', 'dorange'))
-		//colors.push(new Tools.Color('purple', 'dpurple'))
+        //                           Name      Regular    Light
+		colors.push(new Tools.Color('red',    '#c0392b', '#e74c3c'))
+		colors.push(new Tools.Color('green',  '#27ae60', '#2ecc71'))
+		colors.push(new Tools.Color('blue',   '#2980b9', '#3498db'))
+		colors.push(new Tools.Color('yellow', '#f39c12', '#f1c40f'))
+		colors.push(new Tools.Color('orange', '#d35400', '#e67e22'))
+		colors.push(new Tools.Color('purple', '#8e44ad', '#9b59b6'))
 
 		// Return nb random Color
 		export function getColors(nb: number): Tools.Color[] {

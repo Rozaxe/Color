@@ -18,8 +18,8 @@ module Scenes {
 
         start() {
             this.num.innerHTML = this.result.toString()
-            this.shadow.className += 'visible'
-            this.score.className  += 'open'
+            this.shadow.className += ' visible'
+            this.score.className  += ' open'
             Managers.Scene.attach(this.replay, 'click', this.restart)
         }
 
@@ -28,8 +28,8 @@ module Scenes {
         }
 
         terminate() {
-            this.shadow.className = this.shadow.className.replace(/\bvisible\b/, '')
-            this.score.className  = this.score.className.replace(/\bopen\b/, '')
+            this.shadow.className = this.shadow.className.replace(/\s*\bvisible\b/, '')
+            this.score.className  = this.score.className.replace(/\s*\bopen\b/, '')
         }
     }
 }

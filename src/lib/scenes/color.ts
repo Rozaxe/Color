@@ -18,7 +18,7 @@ module Scenes {
 			for (var i = 0 ; i < this.choices.length ; ++i) {
 				Managers.Scene.attach(this.choices[i], 'click', (e) => this.valid(<HTMLElement> e.target))
 			}
-			Managers.Scene.attach(window, 'keyup', this.keyboard)
+			Managers.Scene.attach(window, 'keyup', (e: KeyboardEvent) => this.keyboard(e))
 			this.closeText()
 		}
 
@@ -44,25 +44,29 @@ module Scenes {
 		}
 
 		updateText(col1: Tools.Color, col2: Tools.Color) {
-			this.word.innerText = col1.regular
-			this.word.className = col2.regular
-			this.word.className   += 'bigger'
-			this.chrono.className += 'upper'
+			this.word.innerHTML    = col1.name
+			this.word.style.color  = col2.regular
+			this.word.className   += ' bigger'
+			this.chrono.className += ' upper'
 		}
 
 		updateContent(col: Tools.Color) {
-			this.applyBackgroundColor(this.content, col.regular);
+			this.applyBackgroundColor(this.content, col.regular)
 		}
 
 		getChoice(i: number): HTMLElement {
-			return <HTMLElement> this.choice.children.item(i)
+			return (<HTMLElement> this.choice.children.item(i))
 		}
 
 		keyboard(e: KeyboardEvent) {
-			/*
 			switch(e.keyCode) {
-				case KeyCode.LEFT:
-			}*/
+				case 37: // LEFT
+					return this.valid(this.getChoice(0))
+				case 40: // DOWN
+					return this.valid(this.getChoice(1))
+				case 39: // RIGHT
+					return this.valid(this.getChoice(2))
+			}
 		}
 
 		valid(elem: HTMLElement) {
@@ -77,14 +81,14 @@ module Scenes {
 		}
 
 		applyBackgroundColor(elem: HTMLElement, color: string) {
-			//elem.className = color.light
 			elem.style.backgroundColor = color
 		}
 
 		closeText() {
-			this.word.className = this.word.className.replace(/\bbigger\b/, '')
-			this.word.className = this.word.className.replace(/\bupper\b/, '')
-			window.setTimeout(this.updateWord())
+			this.word.className   = this.word.className.replace(/\s*\bbigger\b/, '')
+			this.chrono.className = this.chrono.className.replace(/\s*\bupper\b/, '')
+			// Because browsers are dumb, they need a time to refresh the CSS
+			window.setTimeout(() => this.updateWord(), 16)
 		}
 		/*
 
