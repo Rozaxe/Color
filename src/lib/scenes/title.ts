@@ -7,14 +7,21 @@ module Scenes {
 		loader: HTMLElement = document.getElementById('loader')
 
 		start() {
+			(<HTMLElement> this.loader.querySelector('p')).innerHTML = 'Tapez pour jouer !'
 			Managers.Scene.attach(this.loader, 'click', (e) => this.tap())
+            Managers.Scene.attach(window, 'keyup', (e: KeyboardEvent) => this.tap())
+            Managers.Scene.attach((<HTMLElement> this.loader.querySelector('a')), 'click', (e: MouseEvent) => (this.prevent(e)))
 		}
 
 		terminate() {}
 
 		tap() {
-			this.loader.className += 'loaded'
+			this.loader.className += ' loaded'
 			Managers.Scene.change_scene(new Scenes.Color())
+		}
+
+		prevent(e: MouseEvent) {
+			e.stopPropagation()
 		}
 
 		/*

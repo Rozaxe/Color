@@ -21,6 +21,10 @@ module Scenes {
             this.shadow.className += ' visible'
             this.score.className  += ' open'
             Managers.Scene.attach(this.replay, 'click', this.restart)
+            Managers.Scene.attach(window, 'keyup', (e: KeyboardEvent) => this.restart())
+            // https://twitter.com/share?text=Heyyou
+            var link = <HTMLLinkElement> this.score.querySelector('a')
+            link.href = 'https://twitter.com/share?text=Arriverez-vous à faire mieux que mon score de ' + this.result + ' ? Pour tenter, c\'est pas ici'
         }
 
         restart() {

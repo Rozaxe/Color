@@ -47,5 +47,5 @@ grunt.loadNpmTasks('grunt-typescript')
 grunt.registerTask('js',      [ 'typescript' ])
 grunt.registerTask('build',   [ 'js' ])
 grunt.registerTask('server',  [ 'connect' ])
-grunt.registerTask('default', [ 'clean', 'server', 'build', 'watch' ])
+grunt.registerTask('default', [ /*'clean',*/ 'server', 'build', 'watch' ])
 }
