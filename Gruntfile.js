@@ -10,7 +10,8 @@ copy: {
         expand: true,
         cwd: 'src/',
         src: ['**/*', '!**/*.ts'],
-        dest: 'build/'
+        dest: 'build/',
+        filter: 'isFile'
       }
     ]
   }
