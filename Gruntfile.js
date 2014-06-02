@@ -26,6 +26,19 @@ typescript: {
     }
   }
 },
+// Uglify config
+uglify: {
+    options: {
+        mangle: true,
+        compress: true,
+        wrap: true
+    },
+    compile: {
+        files: {
+            'build/app.min.js': 'build/app.js'
+        }
+    }
+},
 // Connect options
 connect: {
   server: {
@@ -40,7 +53,11 @@ connect: {
 watch: {
   js: {
     files: 'src/**/*.ts',
-    tasks: [ 'typescript' ]
+    tasks: [ 'typescript', 'uglify' ]
+  },
+  plain: {
+    files: 'src/**/*',
+    tasks: [ 'copy' ]
   }
 },
 // Clean build
@@ -55,12 +72,13 @@ clean: {
 grunt.loadNpmTasks('grunt-contrib-connect')
 grunt.loadNpmTasks('grunt-contrib-clean')
 grunt.loadNpmTasks('grunt-contrib-copy')
+grunt.loadNpmTasks('grunt-contrib-uglify')
 grunt.loadNpmTasks('grunt-contrib-watch')
 grunt.loadNpmTasks('grunt-typescript')
 
 // Tasks definitions
-grunt.registerTask('js',      [ 'typescript' ])
-grunt.registerTask('build',   [ 'js' ])
+grunt.registerTask('js',      [ 'typescript', 'uglify' ])
+grunt.registerTask('build',   [ 'copy', 'js' ])
 grunt.registerTask('server',  [ 'connect' ])
-grunt.registerTask('default', [ 'clean', 'copy', 'server', 'build', 'watch' ])
+grunt.registerTask('default', [ 'clean', 'server', 'build', 'watch' ])
 }

@@ -26,9 +26,31 @@ body {
 	font-size: 1.5em;
 }
 
-#loader p {
-	margin: 1em;
+#loader .anim {
+	width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    overflow: hidden;
+    animation: rotate infinite 2s;
+	margin: 0 auto;
+	margin-top: 50%;
 }
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+#loader .anim div {
+    float: left;
+    width: 50%;
+    height: 50%;
+}
+
+#loader .anim .red { background: red; }
+#loader .anim .blue { background: blue; }
+#loader .anim .green { background: green; }
+#loader .anim .yellow { background: yellow; }
 
 .little {
 	font-size: 0.6em;
@@ -146,7 +168,7 @@ body {
 	height: 100%;
 	max-height: 500px;
 	max-width: 350px;
-	margin: 0 auto; 
+	margin: 0 auto;
 }
 
 #choices {

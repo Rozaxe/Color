@@ -11,6 +11,7 @@ module Scenes {
         replay: HTMLElement = document.getElementById('restart')
 
         result: number
+        time: number
 
         constructor(score: number) {
             this.result = score
@@ -22,12 +23,16 @@ module Scenes {
             this.score.className  += ' open'
             Managers.Scene.attach(this.replay, 'click', this.restart)
             Managers.Scene.attach(window, 'keyup', (e: KeyboardEvent) => this.restart())
-            // https://twitter.com/share?text=Heyyou
             var link = <HTMLLinkElement> this.score.querySelector('a')
             link.href = 'https://twitter.com/share?text=Arriverez-vous à faire mieux que mon score de ' + this.result + ' ? Pour tenter, c\'est pas ici'
+            this.time = (new Date()).getTime()
         }
 
         restart() {
+            var now = (new Date()).getTime()
+            if ((now - this.time) < 400) {
+                return
+            }
             Managers.Scene.change_scene(new Scenes.Color())
         }
 
