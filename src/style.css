@@ -17,13 +17,14 @@ body {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background-color: rgb(240, 240, 240);
+	background-color: #F1F1F1;
 	text-align: center;
 	line-height: 5em;
 	-webkit-transition: top 0.4s;
 	transition: top 0.4s;
 	z-index: 400;
 	font-size: 1.5em;
+	color: #2C2C2C;
 }
 
 #loader .anim {
@@ -47,13 +48,22 @@ body {
     height: 50%;
 }
 
-#loader .anim .red { background: red; }
-#loader .anim .blue { background: blue; }
-#loader .anim .green { background: green; }
-#loader .anim .yellow { background: yellow; }
+#loader .anim .red { background: #e74c3c; }
+#loader .anim .blue { background: #3498db; }
+#loader .anim .green { background: #2ecc71; }
+#loader .anim .yellow { background: #f1c40f; }
 
 .little {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
 	font-size: 0.6em;
+}
+
+.little a, .little a:link {
+	color: #49B3BF;
+	text-decoration: none;
+	font-style: italic;
 }
 
 .loaded {
