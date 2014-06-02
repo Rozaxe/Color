@@ -1,6 +1,9 @@
 {
-	"name": "Color",
-	"version": "2.1.1",
+	"name": "ColorZ",
+	"version": "3.0.1",
+	"author": "Rozaxe <axel.rozobrezillac@gmail.com> (http://rozaxe.github.io/)",
+	"homepage": "https://github.com/Rozaxe/ColorZ",
+	"license": "MIT",
 	"devDependencies": {
 		"grunt": "~0.4.5",
 		"grunt-contrib-connect": "*",
