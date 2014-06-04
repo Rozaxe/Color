@@ -38,12 +38,12 @@ module Managers {
 		var colors : Tools.Color[] = new Array()
 
 		//						   Name	  Regular	Light
-		colors.push(new Tools.Color('red',	'#c0392b', '#e74c3c'))
+		colors.push(new Tools.Color('red',	'#D72545', '#E7282D'))
 		colors.push(new Tools.Color('green',  '#27ae60', '#2ecc71'))
 		colors.push(new Tools.Color('blue',   '#2980b9', '#3498db'))
 		colors.push(new Tools.Color('yellow', '#f39c12', '#f1c40f'))
-		colors.push(new Tools.Color('orange', '#d35400', '#e67e22'))
-		colors.push(new Tools.Color('purple', '#8e44ad', '#9b59b6'))
+		colors.push(new Tools.Color('orange', '#EF7700', '#DE6D00'))
+		colors.push(new Tools.Color('purple', '#99439C', '#d33682'))
 
 		// Return nb random Color
 		export function getColors(nb: number): Tools.Color[] {
