@@ -5,10 +5,10 @@
 
 module Scenes {
 
-    // Top Scene Structure
-    export interface Base {
-        start(): void
-        terminate(): void
-    }
+	// Top Scene Structure
+	export interface Base {
+		start(): void
+		terminate(): void
+	}
 
 }

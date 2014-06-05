@@ -59,12 +59,12 @@ module.exports = (grunt) ->
 				src: [ 'build/' ]
 
 	# Load Grunt Tasks
-	grunt.loadNpmTasks 'grunt-contrib-connect' 
-	grunt.loadNpmTasks 'grunt-contrib-clean' 
-	grunt.loadNpmTasks 'grunt-contrib-copy' 
-	grunt.loadNpmTasks 'grunt-contrib-uglify' 
-	grunt.loadNpmTasks 'grunt-contrib-watch' 
-	grunt.loadNpmTasks 'grunt-typescript' 
+	grunt.loadNpmTasks 'grunt-contrib-connect'
+	grunt.loadNpmTasks 'grunt-contrib-clean'
+	grunt.loadNpmTasks 'grunt-contrib-copy'
+	grunt.loadNpmTasks 'grunt-contrib-uglify'
+	grunt.loadNpmTasks 'grunt-contrib-watch'
+	grunt.loadNpmTasks 'grunt-typescript'
 
 	# Tasks definitions
 	grunt.registerTask 'js',      [ 'typescript', 'uglify' ]

@@ -3,47 +3,47 @@
 /// <reference path="tools.ts" />
 
 module Managers {
-    export module Scene {
-        var scene: Scenes.Base
-        var attachs: Attached[] = new Array()
+	export module Scene {
+		var scene: Scenes.Base
+		var attachs: Attached[] = new Array()
 
-        class Attached {
-            constructor(public e: EventTarget, public t: string, public l: (e: Event) => void) { }
-        }
+		class Attached {
+			constructor(public e: EventTarget, public t: string, public l: (e: Event) => void) { }
+		}
 
-        function clean_streams() {
-            attachs.forEach(function(a: Attached) {
-                a.e.removeEventListener(a.t, a.l, false)
-            })
-        }
+		function clean_streams() {
+			attachs.forEach(function(a: Attached) {
+				a.e.removeEventListener(a.t, a.l, false)
+			})
+		}
 
-        export function attach(e: EventTarget, t: string, l: (e: Event) => void): void {
-            e.addEventListener(t, l, false)
-            attachs.push(new Attached(e, t, l))
-        }
+		export function attach(e: EventTarget, t: string, l: (e: Event) => void): void {
+			e.addEventListener(t, l, false)
+			attachs.push(new Attached(e, t, l))
+		}
 
-        export function change_scene(s: Scenes.Base): void {
-            scene.terminate()
-            clean_streams()
-            init_scene(s)
-        }
+		export function change_scene(s: Scenes.Base): void {
+			scene.terminate()
+			clean_streams()
+			init_scene(s)
+		}
 
-        export function init_scene(s: Scenes.Base): void {
-            scene = s
-            scene.start()
-        }
-    }
+		export function init_scene(s: Scenes.Base): void {
+			scene = s
+			scene.start()
+		}
+	}
 
 	export module Color {
 		var colors : Tools.Color[] = new Array()
 
-        //                           Name      Regular    Light
-		colors.push(new Tools.Color('red',    '#c0392b', '#e74c3c'))
+		//						   Name	  Regular	Light
+		colors.push(new Tools.Color('red',	'#D72545', '#E7282D'))
 		colors.push(new Tools.Color('green',  '#27ae60', '#2ecc71'))
 		colors.push(new Tools.Color('blue',   '#2980b9', '#3498db'))
 		colors.push(new Tools.Color('yellow', '#f39c12', '#f1c40f'))
-		colors.push(new Tools.Color('orange', '#d35400', '#e67e22'))
-		colors.push(new Tools.Color('purple', '#8e44ad', '#9b59b6'))
+		colors.push(new Tools.Color('orange', '#EF7700', '#DE6D00'))
+		colors.push(new Tools.Color('purple', '#99439C', '#d33682'))
 
 		// Return nb random Color
 		export function getColors(nb: number): Tools.Color[] {
