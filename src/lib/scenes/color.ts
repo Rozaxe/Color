@@ -8,6 +8,8 @@ module Scenes {
 		chrono:  HTMLElement = document.getElementById('chrono')
 		choice:  HTMLElement = document.getElementById('choices')
 		choices: NodeList    = document.getElementsByClassName('choice')
+		audio:   HTMLAudioElement = <HTMLAudioElement> document.getElementById('loop')
+		fail:   HTMLAudioElement = <HTMLAudioElement> document.getElementById('fail')
 
 		score:    number = 0
 		duration: number = 1010
@@ -20,9 +22,16 @@ module Scenes {
 			}
 			Managers.Scene.attach(window, 'keyup', (e: KeyboardEvent) => this.keyboard(e))
 			this.closeText()
+			// Start music
+			this.audio.play()
 		}
 
-		terminate() {}
+		terminate() {
+			// Stop music
+			this.fail.play()
+			this.audio.pause()
+			this.audio.currentTime = 0
+		}
 
 		updateWord() {
 			var colors = Managers.Color.getColors(3)

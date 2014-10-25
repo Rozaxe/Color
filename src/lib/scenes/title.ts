@@ -6,7 +6,7 @@ module Scenes {
 		loader: HTMLElement = document.getElementById('loader')
 
 		start() {
-			(<HTMLElement> this.loader.querySelector('div')).innerHTML = 'Tapez pour jouer !'
+			(<HTMLElement> this.loader.querySelector('div')).innerHTML = 'Tap me !'
 			Managers.Scene.attach(this.loader, 'click', (e) => this.tap())
             Managers.Scene.attach(window, 'keyup', (e: KeyboardEvent) => this.tap())
             Managers.Scene.attach((<HTMLElement> this.loader.querySelector('a')), 'click', (e: MouseEvent) => (this.prevent(e)))
