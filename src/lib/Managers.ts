@@ -38,7 +38,7 @@ module Managers {
 		var colors : Tools.Color[] = new Array()
 
 		//                          Name      Regular    Light
-		colors.push(new Tools.Color('red',	  '#D72545', '#E7282D'))
+		colors.push(new Tools.Color('red',    '#D72545', '#E7282D'))
 		colors.push(new Tools.Color('green',  '#27ae60', '#2ecc71'))
 		colors.push(new Tools.Color('blue',   '#2980b9', '#3498db'))
 		colors.push(new Tools.Color('yellow', '#f39c12', '#f1c40f'))
